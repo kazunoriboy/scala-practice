@@ -2,8 +2,11 @@ object printargs {
   def main (args: Array[String]) = {
     var i = 0
     while (i < args.length) {
-      println(args(i))
+      if (i != 0)
+        print(" ")
+      print(args(i))
       i += 1
     }
+    println()
   }
 }
