@@ -11,8 +11,14 @@ object reader {
       for (line <- lines)
         maxWidth = maxWidth.max(widthOfLength(line))
       
+      for (line <- lines) {
+        val numSpaces = maxWidth - widthOfLength(line)
+        val padding = " " * numSpaces
+        println(s"$padding${line.length} | $line")
+      }
     }
     else
       Console.err.println("Please enter filename")
+
   }
 }
