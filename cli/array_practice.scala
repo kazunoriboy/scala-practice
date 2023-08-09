@@ -8,4 +8,11 @@ object array_practice {
     for (i <- 0 to 2)
       print(greetStrings(i))
   }
+
+  @main def simpleArray() = {
+    val numNames = Array("zero", "one", "two")
+
+    for (i <- 0 to 2)
+      print(numNames(i))
+  }
 }
