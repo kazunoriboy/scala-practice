@@ -8,5 +8,9 @@ object list_prac {
     println(oneTwoThreeFour)
     
   }
+
+  @main def cons() = {
+    val oneTwoThree = 1 :: 2 :: 3 :: Nil
+    println(oneTwoThree)
   }
 }
