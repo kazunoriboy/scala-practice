@@ -80,17 +80,11 @@ class Rational(n: Int, d: Int) {
 
 object Rational {
   @main def main(): Unit = {
+    implicit def intToRational(x: Int): Rational = new Rational(x)
     val x = new Rational(12, 24)
     val y = new Rational(3, 2)
     val i = 3;
-    println(x + y)
-    println(x + i)
-    println(x - y)
-    println(x - i)
-    println(x * y)
-    println(x * i)
-    println(x / y)
-    println(x / i)
+    println(i * x)
   }
 }
 
