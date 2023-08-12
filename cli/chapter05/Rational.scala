@@ -10,6 +10,11 @@ class Rational(n: Int, d: Int) {
       denom * that.denom
     )
   }
+
+  def lessThan(that: Rational) = {
+    this.number * that.denom < that.number * this.denom
+  }
+
 }
 
 object Rational {
