@@ -1,8 +1,12 @@
 object ControlStructures {
   def main(args: Array[String]) = {
-    var filename = "default.txt"
-    if (!args.isEmpty)
-      filename = args(0)
-    println(filename)
+    println(ifSyntax(args))
+  }
+
+  def ifSyntax(args: Array[String]) = {
+    val filename = 
+      if (!args.isEmpty) args(0)
+      else "default.txt"
+  }
   }
 }
