@@ -15,13 +15,16 @@ class Rational(n: Int, d: Int) {
     this.number * that.denom < that.number * this.denom
   }
 
+  def max(that: Rational) = {
+    if (this.lessThan(that)) that else this
+  }
 }
 
 object Rational {
   @main def main(): Unit = {
     val r = new Rational(1, 2)
     val r2 = new Rational(2, 3)
-    println(r.add(r2))
+    println(r.max(r2))
   }
 }
 
