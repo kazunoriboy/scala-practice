@@ -1,9 +1,14 @@
 class Rational(n: Int, d: Int) {
   require(d != 0)
-  override def toString = s"$n/$d"
+  val number: Int = n
+  val denom: Int = d
+  override def toString = s"$number/$denom"
 
   def add(that: Rational): Rational = {
-    new Rational(n * that.d + that.n * d, d * that.d)
+    new Rational(
+      number * that.denom + that.number * denom,
+      denom * that.denom
+    )
   }
 }
 
