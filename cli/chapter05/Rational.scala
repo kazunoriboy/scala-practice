@@ -1,7 +1,9 @@
 class Rational(n: Int, d: Int) {
   require(d != 0)
-  val number: Int = n
-  val denom: Int = d
+
+  private val g = gcd(n.abs, d.abs)
+  val number: Int = n / g
+  val denom: Int = d / g
 
   def this(n: Int) = this(n, 1)
 
@@ -21,14 +23,16 @@ class Rational(n: Int, d: Int) {
   def max(that: Rational) = {
     if (this.lessThan(that)) that else this
   }
+
+  private def gcd(a: Int, b: Int): Int = {
+    if (b == 0) a else gcd(b, a % b)
+  }
 }
 
 object Rational {
   @main def main(): Unit = {
-    val r = new Rational(1, 2)
-    val r2 = new Rational(2, 3)
-    val r3 = new Rational(3)
-    println(r3)
+    val x = new Rational(12, 24)
+    println(x)
   }
 }
 
