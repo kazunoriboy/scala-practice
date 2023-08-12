@@ -9,10 +9,59 @@ class Rational(n: Int, d: Int) {
 
   override def toString = s"$number/$denom"
 
-  def add(that: Rational): Rational = {
+  def + (that: Rational): Rational = {
     new Rational(
       number * that.denom + that.number * denom,
       denom * that.denom
+    )
+  }
+
+  def + (i: Int): Rational = {
+    new Rational(
+      number + i * denom,
+      denom
+    )
+  }
+
+  def - (that: Rational): Rational = {
+    new Rational(
+      number * that.denom - that.number * denom,
+      denom * that.denom
+    )
+  }
+
+  def - (i: Int): Rational = {
+    new Rational(
+      number - i * denom,
+      denom
+    )
+  }
+
+  def * (that: Rational): Rational = {
+    new Rational(
+      number * that.number,
+      denom * that.denom
+    )
+  }
+
+  def * (i: Int): Rational = {
+    new Rational(
+      number * i,
+      denom
+    )
+  }
+
+  def / (that: Rational): Rational = {
+    new Rational(
+      number * that.denom,
+      denom * that.number
+    )
+  }
+
+  def / (i: Int): Rational = {
+    new Rational(
+      number,
+      denom * i
     )
   }
 
@@ -32,7 +81,16 @@ class Rational(n: Int, d: Int) {
 object Rational {
   @main def main(): Unit = {
     val x = new Rational(12, 24)
-    println(x)
+    val y = new Rational(3, 2)
+    val i = 3;
+    println(x + y)
+    println(x + i)
+    println(x - y)
+    println(x - i)
+    println(x * y)
+    println(x * i)
+    println(x / y)
+    println(x / i)
   }
 }
 
