@@ -2,6 +2,9 @@ class Rational(n: Int, d: Int) {
   require(d != 0)
   val number: Int = n
   val denom: Int = d
+
+  def this(n: Int) = this(n, 1)
+
   override def toString = s"$number/$denom"
 
   def add(that: Rational): Rational = {
@@ -24,7 +27,8 @@ object Rational {
   @main def main(): Unit = {
     val r = new Rational(1, 2)
     val r2 = new Rational(2, 3)
-    println(r.max(r2))
+    val r3 = new Rational(3)
+    println(r3)
   }
 }
 
