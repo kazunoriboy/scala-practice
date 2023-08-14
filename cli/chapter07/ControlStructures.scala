@@ -1,7 +1,6 @@
 object ControlStructures {
   def main(args: Array[String]) = {
-    println(ifSyntax(args))
-    println(whileSyntax(10L, 32L))
+    forSyntax()
   }
 
   def ifSyntax(args: Array[String]) = {
@@ -19,5 +18,11 @@ object ControlStructures {
       b = temp
     }
     b
+  }
+
+  def forSyntax() = {
+    val filesHere = (new java.io.File(".")).listFiles
+    for (file <- filesHere)
+      println(file)
   }
 }
