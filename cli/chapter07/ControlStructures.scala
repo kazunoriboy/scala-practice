@@ -1,6 +1,6 @@
 object ControlStructures {
   def main(args: Array[String]) = {
-    forSyntax()
+    filteringFor()
   }
 
   def ifSyntax(args: Array[String]) = {
@@ -23,6 +23,12 @@ object ControlStructures {
   def forSyntax() = {
     val filesHere = (new java.io.File(".")).listFiles
     for (file <- filesHere)
+      println(file)
+  }
+  
+  def filteringFor() = {
+    val filesHere = (new java.io.File(".")).listFiles
+    for (file <- filesHere if file.getName.endsWith(".scala"))
       println(file)
   }
 }
