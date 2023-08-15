@@ -1,6 +1,6 @@
 object ControlStructures {
   def main(args: Array[String]) = {
-    nestedFilter()
+    matchSyntax(args)
   }
 
   def ifSyntax(args: Array[String]) = {
@@ -62,5 +62,15 @@ object ControlStructures {
       if file.getName.endsWith(".scala")
     } yield file
 
+  def matchSyntax(args: Array[String]) = {
+    val firstArg = if (args.length > 0) args(0) else "" 
+
+    firstArg match {
+      case "salt" => println("pepper")
+      case "chips" => println("salsa")
+      case "eggs" => println("bacon")
+      case _ => println("huh?")
+    }
+  }
 
 }
