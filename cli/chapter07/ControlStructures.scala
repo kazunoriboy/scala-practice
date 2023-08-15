@@ -45,6 +45,7 @@ object ControlStructures {
 
   def grep(pattern: String) = {
     val filesHere = (new java.io.File(".")).listFiles
+
     for {
       file <- filesHere
       if file.getName.endsWith(".scala");
@@ -54,4 +55,12 @@ object ControlStructures {
     }
       println(s"$file: $trimmed")
   }
+
+  def scalaFiles = 
+    for {
+      file <- (new java.io.File(".")).listFiles
+      if file.getName.endsWith(".scala")
+    } yield file
+
+
 }
