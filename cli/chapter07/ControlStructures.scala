@@ -45,12 +45,13 @@ object ControlStructures {
 
   def grep(pattern: String) = {
     val filesHere = (new java.io.File(".")).listFiles
-    for (
+    for {
       file <- filesHere
       if file.getName.endsWith(".scala");
       line <- fileLines(file)
-      if line.trim.matches(pattern)
-    )
-      println(file.getName + ": " + line.trim)
+      trimmed = line.trim
+      if trimmed.matches(pattern)
+    }
+      println(s"$file: $trimmed")
   }
 }
