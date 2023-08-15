@@ -1,6 +1,6 @@
 object ControlStructures {
   def main(args: Array[String]) = {
-    filteringFor()
+    nestedFilter()
   }
 
   def ifSyntax(args: Array[String]) = {
@@ -34,5 +34,23 @@ object ControlStructures {
        if file.getName.endsWith(".scala")
     )
       println(file)
+  }
+
+  def nestedFilter() = {
+    grep(".*file.*") 
+  }
+
+  def fileLines(file: java.io.File) = 
+    scala.io.Source.fromFile(file).getLines().toList
+
+  def grep(pattern: String) = {
+    val filesHere = (new java.io.File(".")).listFiles
+    for (
+      file <- filesHere
+      if file.getName.endsWith(".scala");
+      line <- fileLines(file)
+      if line.trim.matches(pattern)
+    )
+      println(file.getName + ": " + line.trim)
   }
 }
