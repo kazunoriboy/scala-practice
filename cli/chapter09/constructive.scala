@@ -2,16 +2,16 @@ object FileMatcher {
   private def filesHere = (new java.io.File(".")).listFiles
 
   def fileEnding(query: String) =
-    fileMatching(query, _.endsWith(_))
+    fileMatching(_.endsWith(query))
 
   def filesContaining(query: String) =
-    fileMatching(query, _.contains(_))
+    fileMatching(_.contains(query))
 
   def fileRegex(query: String) =
-    fileMatching(query, _.matches(_))
+    fileMatching(_.matches(query))
 
-  def filesMatching(query: String, matcher: (String, String) => Boolean) = {
-    for (file <- filesHere; if matcher(file.getName, query))
+  def filesMatching(matcher: String => Boolean) = {
+    for (file <- filesHere; if matcher(file.getName))
       yield file:
   }
 }
