@@ -33,7 +33,34 @@ class Tiger(
 ) extends Cat
 
 @main def main() = {
-  val ue = new UniformElement('x', 2, 3)
-  println(ue.width)
-  println(ue.height)
+  val ae = new ArrayElement2()
+  invokeDemo(ae)
+  val le = new LineElement2()
+  invokeDemo(le)
+  val ue = new UniformElement2()
+  invokeDemo(ue)
+}
+
+abstract class Element2 {
+  def demo() = {
+    println("Element's implementation invoked")
+  }
+}
+
+class ArrayElement2 extends Element2 {
+  override def demo() = {
+    println("ArrayElement's implementation invoked")
+  }
+}
+
+class LineElement2 extends ArrayElement2 {
+  override def demo() = {
+    println("LineElement's implementation invoked")
+  }
+}
+
+class UniformElement2 extends Element2
+
+def invokeDemo(e: Element2) = {
+  e.demo()
 }
