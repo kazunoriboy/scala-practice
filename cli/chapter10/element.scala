@@ -47,8 +47,8 @@ abstract class Element2 {
   }
 }
 
-class ArrayElement2 extends Element2 {
-  final override def demo() = {
+final class ArrayElement2 extends Element2 {
+  override def demo() = {
     println("ArrayElement's implementation invoked")
   }
 }
