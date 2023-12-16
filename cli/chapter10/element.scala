@@ -2,6 +2,14 @@ abstract class Element {
   def contents: Array[String]
   def height: Int = contents.length
   def width: Int = if (height == 0) 0 else contents(0).length
+  def above(that: Element): Element =
+    new ArrayElement(this.contents ++ that.contents)
+  def beside(that: Element): Element = {
+    val contents = new Array[String](this.contents.length)
+    for (i <- 0 until this.contents.length)
+      contents(i) = this.contents(i) + that.contents(i)
+    new ArrayElement(contents)
+  }
 }
 
 class ArrayElement(
@@ -34,12 +42,13 @@ class Tiger(
 ) extends Cat
 
 @main def main() = {
-  val ae = new ArrayElement2()
-  invokeDemo(ae)
-  val le = new LineElement2()
-  invokeDemo(le)
-  val ue = new UniformElement2()
-  invokeDemo(ue)
+  val ae = new ArrayElement(Array("hello", "world"))
+  val ae2 = new ArrayElement(Array("aaaaa", "bbbbb"))
+  println(ae.above(ae2).height)
+  println(ae.beside(ae2).width)
+  val ae3 = ae.beside(ae2)
+  for (line <- ae3.contents)
+    println(line)
 }
 
 abstract class Element2 {
@@ -48,7 +57,7 @@ abstract class Element2 {
   }
 }
 
-final class ArrayElement2 extends Element2 {
+class ArrayElement2 extends Element2 {
   override def demo() = {
     println("ArrayElement's implementation invoked")
   }
