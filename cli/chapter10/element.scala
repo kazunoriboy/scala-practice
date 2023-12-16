@@ -4,7 +4,8 @@ abstract class Element {
   def width: Int = if (height == 0) 0 else contents(0).length
 }
 
-class ArrayElement(conts: Array[String]) extends Element {
-  val contents: Array[String] = conts
+class ArrayElement(
+  val Array[String]
+) extends Element {
 }
 
