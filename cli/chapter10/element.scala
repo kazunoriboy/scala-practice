@@ -9,6 +9,20 @@ class ArrayElement(
 ) extends Element {
 }
 
+class LineElement(s: String) extends ArrayElement(Array(s)) {
+  override def width = s.length
+  override def height = 1
+}
+
+class UniformElement(
+  ch: Char,
+  override val width: Int,
+  override val height: Int
+) extends Element {
+  private val line = ch.toString * width
+  def contents = Array.fill(height)(line)
+}
+
 class Cat {
   val dangerous = false
 }
@@ -19,6 +33,7 @@ class Tiger(
 ) extends Cat
 
 @main def main() = {
-  val tiger = new Tiger(true, 10)
-  println(tiger)
+  val ue = new UniformElement('x', 2, 3)
+  println(ue.width)
+  println(ue.height)
 }
