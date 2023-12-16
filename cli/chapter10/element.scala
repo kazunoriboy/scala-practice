@@ -5,7 +5,20 @@ abstract class Element {
 }
 
 class ArrayElement(
-  val Array[String]
+  val contents: Array[String]
 ) extends Element {
 }
 
+class Cat {
+  val dangerous = false
+}
+
+class Tiger(
+  override val dangerous: Boolean,
+  private var age: Int
+) extends Cat
+
+@main def main() = {
+  val tiger = new Tiger(true, 10)
+  println(tiger)
+}
