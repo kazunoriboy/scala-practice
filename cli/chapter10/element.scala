@@ -62,13 +62,9 @@ class Tiger(
 ) extends Cat
 
 @main def main() = {
-  val ae = new ArrayElement(Array("hello", "world"))
-  val ae2 = new ArrayElement(Array("aaaaa", "bbbbb"))
-  println(ae.above(ae2).height)
-  println(ae.beside(ae2).width)
-  val ae3 = ae.beside(ae2)
-  for (line <- ae3.contents)
-    println(line)
+  val ae = elem(Array("hello", "world"))
+  val ae2 = elem(Array("this", "is"))
+  println(ae.beside(ae2))
 }
 
 abstract class Element2 {
