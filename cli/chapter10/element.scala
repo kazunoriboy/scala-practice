@@ -1,4 +1,5 @@
 import Element.elem
+import Spiral.spiral
 
 abstract class Element {
   def contents: Array[String]
@@ -81,9 +82,7 @@ class Tiger(
 ) extends Cat
 
 @main def main() = {
-  val ae = elem(Array("hello", "world", "!"))
-  val ae2 = elem(Array("this", "is"))
-  println(ae above ae2)
+  println(spiral(11, 0))
 }
 
 abstract class Element2 {
@@ -109,3 +108,31 @@ class UniformElement2 extends Element2
 def invokeDemo(e: Element2) = {
   e.demo()
 }
+
+object Spiral {
+  val space = elem(" ")
+  val corner = elem("+")
+
+  def spiral(nEdges: Int, direction: Int): Element = {
+    if (nEdges == 1)
+      elem("+")
+    else {
+      val sp = spiral(nEdges - 1, (direction + 3) % 4)
+      println(nEdges)
+      println(sp.height)
+      println(sp.width)
+      def verticalBar = elem('|', 1, sp.height)
+      def horizontalBar = elem('-', sp.width, 1)
+      if (direction == 0)
+        (corner beside horizontalBar) above (sp beside space)
+      else if (direction == 1)
+        (sp above space) beside (corner above verticalBar)
+      else if (direction == 2)
+        (space beside sp) above (horizontalBar beside corner)
+      else
+        (verticalBar above corner) beside (space above sp)
+    }
+  }
+  
+}
+
