@@ -1,5 +1,5 @@
 trait Philosophical {
-  def philosophize() {
+  def philosophize() = {
     println("I consume memory, therefore I am!")
   }
 }
