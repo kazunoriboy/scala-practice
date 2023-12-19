@@ -16,6 +16,10 @@ class Frog extends Animal with Philosophical with HasLegs {
   }
 }
 
+class Point(x: Int, y: Int)
+
+trait NoPoint(x: Int, y: Int)
+
 @main def testTrait(): Unit = {
   val frog = new Frog
   frog.philosophize()
