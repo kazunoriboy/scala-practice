@@ -83,7 +83,7 @@ class Rational(n: Int, d: Int) {
 
   def <= (that: Rational) = (this < that) || (this == that)
 
-  def <= (that: Rational) = (this > that) || (this == that)
+  def >= (that: Rational) = (this > that) || (this == that)
 }
 
 object Rational {
