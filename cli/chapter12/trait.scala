@@ -4,8 +4,11 @@ trait Philosophical {
   }
 }
 
+trait HasLegs
 
-class Frog extends Philosophical {
+class Animal
+
+class Frog extends Animal with Philosophical with HasLegs {
   override def toString = "green"
 }
 
