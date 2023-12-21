@@ -1,4 +1,4 @@
-class Rational(n: Int, d: Int) {
+class Rational(n: Int, d: Int) extends Ordered[Rational] {
   require(d != 0)
 
   private val g = gcd(n.abs, d.abs)
@@ -77,22 +77,16 @@ class Rational(n: Int, d: Int) {
     if (b == 0) a else gcd(b, a % b)
   }
 
-  def < (that: Rational) = this.number * that.denom < that.number * this.denom
-
-  def > (that: Rational) = that < this
-
-  def <= (that: Rational) = (this < that) || (this == that)
-
-  def >= (that: Rational) = (this > that) || (this == that)
+  def compare (that: Rational) = this.number * that.denom - that.number * this.denom
 }
 
 object Rational {
   @main def main(): Unit = {
     implicit def intToRational(x: Int): Rational = new Rational(x)
-    val x = new Rational(12, 24)
+    val x = new Rational(211, 240)
     val y = new Rational(3, 2)
     val i = 3;
-    println(i * x)
+    println(x < y)
   }
 }
 
