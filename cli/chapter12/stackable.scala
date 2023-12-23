@@ -22,4 +22,8 @@ class MyQueue extends BasicIntQueue with Doubling
   val queue = new MyQueue
   queue.put(10)
   println(queue.get())
+
+  val queue2 = new BasicIntQueue with Doubling
+  queue2.put(10)
+  println(queue2.get())
 }
