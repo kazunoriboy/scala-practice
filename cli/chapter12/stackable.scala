@@ -16,6 +16,16 @@ trait Doubling extends IntQueue {
   abstract override def put(x: Int) = { super.put(2 * x) }
 }
 
+trait Incrementing extends IntQueue {
+  abstract override def put(x: Int) = { super.put(x + 1) }
+}
+
+trait Filtering extends IntQueue {
+  abstract override def put(x: Int) = {
+    if (x >= 0) super.put(x)
+  }
+}
+
 class MyQueue extends BasicIntQueue with Doubling
 
 @main def testStackable(): Unit = {
@@ -26,4 +36,11 @@ class MyQueue extends BasicIntQueue with Doubling
   val queue2 = new BasicIntQueue with Doubling
   queue2.put(10)
   println(queue2.get())
+
+  val queue3 = new BasicIntQueue with Incrementing with Filtering with Doubling
+  queue3.put(-1)
+  queue3.put(0)
+  queue3.put(1)
+  println(queue3.get())
+  println(queue3.get())
 }
