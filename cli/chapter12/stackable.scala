@@ -11,11 +11,15 @@ class BasicIntQueue extends IntQueue {
   def put(x: Int) = { buf += x}
 }
 
-@main def testStackable(): Unit = {
-  val queue = new BasicIntQueue
-  queue.put(10)
-  queue.put(20)
-  println(queue.get())
-  println(queue.get())
+// traitをextendsすると、そのクラスを継承したクラスでしかこのtraitを使えない
+trait Doubling extends IntQueue {
+  abstract override def put(x: Int) = { super.put(2 * x) }
+}
 
+class MyQueue extends BasicIntQueue with Doubling
+
+@main def testStackable(): Unit = {
+  val queue = new MyQueue
+  queue.put(10)
+  println(queue.get())
 }
