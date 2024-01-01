@@ -19,4 +19,5 @@ class AStarB {
   val pat = regex.Pattern.compile("a*b")
 }
 
+import Fruits.{Apple, Orange}
 
