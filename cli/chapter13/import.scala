@@ -21,3 +21,4 @@ class AStarB {
 
 import Fruits.{Apple, Orange}
 
+import Fruits.{Apple => McIntoch, Orange}
