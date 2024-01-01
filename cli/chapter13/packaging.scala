@@ -1,18 +1,16 @@
-pakage bobsrockets.navigation
-class Navigator
-
-package  bobsrocket.navigation {
-  class Navigator
-}
-
 package bobsrockets {
   package navigation {
     class Navigator {
       val map = new StarMap
     }
-
-    package test {
-      class NavigatorSuite
+    class StarMap
+  }
+  class Ship {
+    val nav = new navigation.Navigator
+  }
+  package fleets {
+    class Fleet {
+      def addShip() { new Ship }
     }
   }
 }
