@@ -19,6 +19,24 @@ class AStarB {
   val pat = regex.Pattern.compile("a*b")
 }
 
+// メンバーを選択してインポート
 import Fruits.{Apple, Orange}
 
+// 別名でインポート
 import Fruits.{Apple => McIntoch, Orange}
+
+// javaの日付クラスとは別の名前になるようにしてインポート
+import java.sql.{Date => SDate}
+
+// パッケージのみをインポートして、S.Dateでつかえるようにする
+import java.{sql => S}
+
+// ワイルドカードですべてのメンバーをインポート
+import Fruits.{_}
+
+// Appleに別名をつけて、すべてのメンバーをインポートする
+import Fruits.{Applce => McIntosh, _}
+
+// Pearを除くすべてのメンバーをインポート
+import Fruits.{Pear => _, _}
+
